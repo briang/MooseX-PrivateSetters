@@ -1,4 +1,4 @@
-package MooseX::SemiAffordanceAccessor::Role::Attribute;
+package MooseX::PrivateSetters::Role::Attribute;
 
 use strict;
 use warnings;
@@ -42,14 +42,14 @@ no Moose::Role;
 
 =head1 NAME
 
-MooseX::SemiAffordanceAccessor::Role::Attribute - Names accessors in a semi-affordance style
+MooseX::PrivateSetters::Role::Attribute - Names accessors in a semi-affordance style
 
 =head1 SYNOPSIS
 
   Moose::Util::MetaRole::apply_metaclass_roles
       ( for_class => $p{for_class},
         attribute_metaclass_roles =>
-        ['MooseX::SemiAffordanceAccessor::Role::Attribute'],
+        ['MooseX::PrivateSetters::Role::Attribute'],
       );
 
 =head1 DESCRIPTION

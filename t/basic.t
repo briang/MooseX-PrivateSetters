@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 
+use FindBin; use lib "$FindBin::Bin/../lib"; # XXX
+
 use Test::More tests => 21;
 
 
@@ -16,7 +18,7 @@ use Test::More tests => 21;
 {
     package SAA;
 
-    use MooseX::SemiAffordanceAccessor;
+    use MooseX::PrivateSetters;
     use Moose;
 
     has 'thing' => ( is => 'rw' );
@@ -28,7 +30,7 @@ use Test::More tests => 21;
 
     # Make sure load order doesn't matter
     use Moose;
-    use MooseX::SemiAffordanceAccessor;
+    use MooseX::PrivateSetters;
 
     has 'thing' => ( is => 'rw' );
     has '_private' => ( is => 'rw' );
@@ -38,7 +40,7 @@ use Test::More tests => 21;
     package SAA3;
 
     use Moose;
-    use MooseX::SemiAffordanceAccessor;
+    use MooseX::PrivateSetters;
 
     has 'ro' => ( is => 'ro' );
     has 'thing' => ( is => 'rw', reader => 'get_thing' );
@@ -49,7 +51,7 @@ use Test::More tests => 21;
     package SAA4;
 
     use Moose;
-    use MooseX::SemiAffordanceAccessor;
+    use MooseX::PrivateSetters;
 
     has bare => ( is => 'bare' );
 }

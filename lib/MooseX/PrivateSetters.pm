@@ -1,4 +1,4 @@
-package MooseX::SemiAffordanceAccessor;
+package MooseX::PrivateSetters;
 
 use strict;
 use warnings;
@@ -8,7 +8,7 @@ our $VERSION = '0.05';
 use Moose 0.84 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
-use MooseX::SemiAffordanceAccessor::Role::Attribute;
+use MooseX::PrivateSetters::Role::Attribute;
 
 # The main reason to use this is to ensure that we get the right value
 # in $p{for_class} later.
@@ -25,7 +25,7 @@ sub init_meta
         Moose::Util::MetaRole::apply_metaclass_roles
             ( for_class => $p{for_class},
               attribute_metaclass_roles =>
-              ['MooseX::SemiAffordanceAccessor::Role::Attribute'],
+              ['MooseX::PrivateSetters::Role::Attribute'],
             );
 }
 
@@ -37,11 +37,11 @@ __END__
 
 =head1 NAME
 
-MooseX::SemiAffordanceAccessor - Name your accessors foo() and set_foo()
+MooseX::PrivateSetters - Name your accessors foo() and set_foo()
 
 =head1 SYNOPSIS
 
-    use MooseX::SemiAffordanceAccessor;
+    use MooseX::PrivateSetters;
     use Moose;
 
     # make some attributes
