@@ -1,0 +1,23 @@
+---
+name: MooseX-SemiAffordanceAccessor
+version: 0.05
+author:
+  - 'Dave Rolsky, C<< <autarch@urth.org> >>'
+abstract: Name your accessors foo() and set_foo()
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Moose: 0.84
+build_requires:
+  Test::More: 0
+provides:
+  MooseX::SemiAffordanceAccessor:
+    file: lib/MooseX/SemiAffordanceAccessor.pm
+    version: 0.05
+  MooseX::SemiAffordanceAccessor::Role::Attribute:
+    file: lib/MooseX/SemiAffordanceAccessor/Role/Attribute.pm
+generated_by: Module::Build version 0.280801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

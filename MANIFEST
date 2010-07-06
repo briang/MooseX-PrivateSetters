@@ -1,0 +1,12 @@
+Build.PL
+Changes
+lib/MooseX/SemiAffordanceAccessor.pm
+lib/MooseX/SemiAffordanceAccessor/Role/Attribute.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/basic.t
+t/pod-coverage.t
+t/pod.t
+SIGNATURE    Added here by Module::Build
