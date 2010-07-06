@@ -3,7 +3,7 @@ package MooseX::PrivateSetters;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.01';
 
 use Moose 0.84 ();
 use Moose::Exporter;
@@ -37,7 +37,7 @@ __END__
 
 =head1 NAME
 
-MooseX::PrivateSetters - Name your accessors foo() and set_foo()
+MooseX::PrivateSetters - Name your accessors foo() and _set_foo()
 
 =head1 SYNOPSIS
 
@@ -51,7 +51,7 @@ MooseX::PrivateSetters - Name your accessors foo() and set_foo()
 This module does not provide any methods. Simply loading it changes
 the default naming policy for the loading class so that accessors are
 separated into get and set methods. The get methods have the same name
-as the accessor, while set methods are prefixed with "set_".
+as the accessor, while set methods are prefixed with "_set_".
 
 If you define an attribute with a leading underscore, then the set
 method will start with "_set_".
@@ -59,24 +59,20 @@ method will start with "_set_".
 If you explicitly set a "reader" or "writer" name when creating an
 attribute, then that attribute's naming scheme is left unchanged.
 
-The name "semi-affordance" comes from David Wheeler's Class::Meta
-module.
-
 =head1 AUTHOR
 
-Dave Rolsky, C<< <autarch@urth.org> >>
+brian greenfield, C<< <briang@cpan.org> >>
 
 =head1 BUGS
 
 Please report any bugs or feature requests to
-C<bug-moosex-semiaffordanceaccessor@rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org>.  I will be notified, and
-then you'll automatically be notified of progress on your bug as I
-make changes.
+C<bug-moosex-privatesetters@rt.cpan.org>, or through the web interface
+at L<http://rt.cpan.org>.  I will be notified, and then you'll
+automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+Copyright 2010 brian greenfield
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
