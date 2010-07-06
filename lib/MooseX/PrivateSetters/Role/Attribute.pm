@@ -5,9 +5,7 @@ use warnings;
 
 use Moose::Role;
 
-
-before '_process_options' => sub
-{
+before '_process_options' => sub {
     my $class   = shift;
     my $name    = shift;
     my $options = shift;
@@ -18,19 +16,15 @@ before '_process_options' => sub
         if ( $options->{is} eq 'ro' )
         {
             $options->{reader} = $name;
+
             delete $options->{is};
         }
         elsif ( $options->{is} eq 'rw' )
         {
             $options->{reader} = $name;
+            my $prefix = $name =~ /^_/  ?  '_set'  :  '_set_';
+            $options->{writer} = $prefix . $name;
 
-            my $prefix = 'set';
-            if ( $name =~ s/^_// )
-            {
-                $prefix = '_set';
-            }
-
-            $options->{writer} = $prefix . q{_} . $name;
             delete $options->{is};
         }
     }
@@ -42,7 +36,7 @@ no Moose::Role;
 
 =head1 NAME
 
-MooseX::PrivateSetters::Role::Attribute - Names accessors in a semi-affordance style
+MooseX::PrivateSetters::Role::Attribute - Names setters as such, and makes them private
 
 =head1 SYNOPSIS
 
@@ -55,19 +49,26 @@ MooseX::PrivateSetters::Role::Attribute - Names accessors in a semi-affordance s
 =head1 DESCRIPTION
 
 This role applies a method modifier to the C<_process_options()>
-method, and tweaks the reader and writer parameters so that they
-follow the semi-affordance naming style.
+method, and tweaks the writer parameters so that they are private with
+an explicit 'set'. Getters are left unchanged. This role copes with
+attributes intended to be private (ie, starts with an underscore),
+with no double-underscore in the setter.
+
+For example:
+
+    | Code                     | Reader | Writer     |
+    |--------------------------+--------+------------|
+    | has 'baz'  => (is 'rw'); | baz()  | _set_baz() |
+    | has 'baz'  => (is 'ro'); | baz()  |            |
+    | has '_baz' => (is 'rw'); | _baz() | _set_baz() |
 
 =head1 AUTHOR
 
-Dave Rolsky, C<< <autarch@urth.org> >>
+brian greenfield, C<< <briang@cpan.org> >>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+Copyright 2010 brian greenfield
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=cut
-

@@ -1,10 +1,11 @@
 use strict;
 use warnings;
 
-use FindBin; use lib "$FindBin::Bin/../lib"; # XXX
+#use FindBin;
+#use lib "$FindBin::Bin/../lib";
+#use Data::Dump 'pp';
 
 use Test::More tests => 21;
-
 
 {
     package Standard;
@@ -15,8 +16,13 @@ use Test::More tests => 21;
     has '_private' => ( is => 'rw' );
 }
 
+ok(   Standard->can('thing'), 'Standard->thing() exists' );
+ok( ! Standard->can('set_thing'), 'Standard->set_thing() does not exist' );
+ok(   Standard->can('_private'), 'Standard->_private() exists' );
+ok( ! Standard->can('_set_private'), 'Standard->_set_private() does not exist' );
+
 {
-    package SAA;
+    package PS;
 
     use MooseX::PrivateSetters;
     use Moose;
@@ -25,8 +31,13 @@ use Test::More tests => 21;
     has '_private' => ( is => 'rw' );
 }
 
+ok( PS->can('thing'), 'PS->thing() exists' );
+ok( PS->can('_set_thing'), 'PS->set_thing() exists' );
+ok( PS->can('_private'), 'PS->_private() exists' );
+ok( PS->can('_set_private'), 'PS->_set_private() exists' );
+
 {
-    package SAA2;
+    package PS2;
 
     # Make sure load order doesn't matter
     use Moose;
@@ -36,8 +47,13 @@ use Test::More tests => 21;
     has '_private' => ( is => 'rw' );
 }
 
+ok( PS2->can('thing'), 'PS2->thing() exists' );
+ok( PS2->can('_set_thing'), 'PS2->set_thing() exists' );
+ok( PS2->can('_private'), 'PS2->_private() exists' );
+ok( PS2->can('_set_private'), 'PS2->_set_private() exists' );
+
 {
-    package SAA3;
+    package PS3;
 
     use Moose;
     use MooseX::PrivateSetters;
@@ -47,8 +63,16 @@ use Test::More tests => 21;
     has 'thing2' => ( is => 'rw', writer => 'set_it' );
 }
 
+ok(   PS3->can('ro'), 'PS3->ro exists' );
+ok( ! PS3->can('set_ro'), 'PS3->set_ro does not exist' );
+ok(   PS3->can('thing'), 'PS3->thing exists' );
+ok( ! PS3->can('set_thing'), 'PS3->set_thing does not exist' );
+ok(   PS3->can('thing2'), 'PS3->thing2 exists' );
+ok( ! PS3->can('set_thing2'), 'PS3->set_thing2 does not exist' );
+ok(   PS3->can('set_it'), 'PS3->set_it does exist' );
+
 {
-    package SAA4;
+    package PS4;
 
     use Moose;
     use MooseX::PrivateSetters;
@@ -56,29 +80,5 @@ use Test::More tests => 21;
     has bare => ( is => 'bare' );
 }
 
-
-ok( Standard->can('thing'), 'Standard->thing() exists' );
-ok( ! Standard->can('set_thing'), 'Standard->set_thing() does not exist' );
-ok( Standard->can('_private'), 'Standard->_private() exists' );
-ok( ! Standard->can('_set_private'), 'Standard->_set_private() does not exist' );
-
-ok( SAA->can('thing'), 'SAA->thing() exists' );
-ok( SAA->can('set_thing'), 'SAA->set_thing() exists' );
-ok( SAA->can('_private'), 'SAA->_private() exists' );
-ok( SAA->can('_set_private'), 'SAA->_set_private() exists' );
-
-ok( SAA2->can('thing'), 'SAA2->thing() exists' );
-ok( SAA2->can('set_thing'), 'SAA2->set_thing() exists' );
-ok( SAA2->can('_private'), 'SAA2->_private() exists' );
-ok( SAA2->can('_set_private'), 'SAA2->_set_private() exists' );
-
-ok( SAA3->can('ro'), 'SAA3->ro exists' );
-ok( ! SAA3->can('set_ro'), 'SAA3->set_ro does not exist' );
-ok( SAA3->can('thing'), 'SAA3->thing exists' );
-ok( ! SAA3->can('set_thing'), 'SAA3->set_thing does not exist' );
-ok( SAA3->can('thing2'), 'SAA3->thing2 exists' );
-ok( ! SAA3->can('set_thing2'), 'SAA3->set_thing2 does not exist' );
-ok( SAA3->can('set_it'), 'SAA3->set_it does exist' );
-
-ok( ! SAA4->can('bare'), 'SAA4->bare does not exist' );
-ok( ! SAA4->can('set_bare'), 'SAA4->set_bare does not exist' );
+ok( ! PS4->can('bare'), 'PS4->bare does not exist' );
+ok( ! PS4->can('set_bare'), 'PS4->set_bare does not exist' );
