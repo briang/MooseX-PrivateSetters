@@ -1,0 +1,10 @@
+* Documentation
+*** RATIONALE
+    - sick of writing reader=>'...', writer=>'...'
+*** SEE ALSO
+    - Moose
+    - Similar MooseX extensions
+* Code
+  - Modernise as per SemiAffordanceAccsessor etc
+  - Study MooseX::Accessors::ReadWritePrivate and perhaps implement
+    (steal) his ideas
