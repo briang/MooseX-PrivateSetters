@@ -34,8 +34,9 @@ MooseX::PrivateSetters - Name your accessors foo() and _set_foo()
     # make some attributes
 
     has 'foo' => ( is => 'rw' );
-
     ...
+
+    package main;
 
     sub bar {
         $self = shift;
@@ -49,7 +50,7 @@ the default naming policy for the loading class so that accessors are
 separated into get and set methods. The get methods have the same name
 as the accessor, while set methods are prefixed with C<<_set_>>.
 
-If you define an attribute with a leading underscore, then the set
+If you deckare an attribute with a leading underscore, then the set
 method will start with C<<_set_>>.
 
 If you explicitly set a C<<reader>> or C<<writer>> name when creating
@@ -64,15 +65,15 @@ There are a number of similar modules on the CPAN.
 
 =head2 L<Moose>
 
-The original. A single mutator method with the same name as the
-attribute itself
+The original. A single mutator method is generated with the same name
+as the attribute itself.
 
 =head2 L<MooseX::Accessors::ReadWritePrivate>
 
 Changes the parsing of the C<<is>> clause, making new options
 available. For example,
 
-    has baz => ( is => 'rpwp', # is private reader, is private writer
+    has baz => ( is => 'rpwp', # private reader, private writer
 
 gets you C<<_get_baz()>> and C<<_set_baz>>.
 
