@@ -5,7 +5,7 @@ use warnings;
 #use lib "$FindBin::Bin/../lib";
 #use Data::Dump 'pp';
 
-use Test::More tests => 21;
+use Test::More tests => 23;
 
 {
     package Standard;
@@ -82,3 +82,15 @@ ok(   PS3->can('set_it'), 'PS3->set_it does exist' );
 
 ok( ! PS4->can('bare'), 'PS4->bare does not exist' );
 ok( ! PS4->can('set_bare'), 'PS4->set_bare does not exist' );
+
+{
+    package PS5;
+
+    use Moose;
+    use MooseX::PrivateSetters;
+
+    has '__private' => ( is => 'rw' );
+}
+
+ok( PS5->can('__private'),     'PS5->__private exists' );
+ok( PS5->can('_set__private'), 'PS5->_set__private exists' );
