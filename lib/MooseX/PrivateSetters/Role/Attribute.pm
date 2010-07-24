@@ -52,17 +52,21 @@ MooseX::PrivateSetters::Role::Attribute - Names setters as such, and makes them 
 
 This role applies a method modifier to the C<_process_options()>
 method, and tweaks the writer parameters so that they are private with
-an explicit 'set'. Getters are left unchanged. This role copes with
-attributes intended to be private (ie, starts with an underscore),
-with no double-underscore in the setter.
+an explicit '_set_attr' method. Getters are left unchanged. This role
+copes with attributes intended to be private (ie, starts with an
+underscore), with no double-underscore in the setter.
 
 For example:
 
-    | Code                     | Reader | Writer     |
-    |--------------------------+--------+------------|
-    | has 'baz'  => (is 'rw'); | baz()  | _set_baz() |
-    | has 'baz'  => (is 'ro'); | baz()  |            |
-    | has '_baz' => (is 'rw'); | _baz() | _set_baz() |
+    | Code                      | Reader | Writer      |
+    |---------------------------+--------+-------------|
+    | has 'baz'  => (is 'rw');  | baz()  | _set_baz()  |
+    | has 'baz'  => (is 'ro');  | baz()  |             |
+    | has '_baz' => (is 'rw');  | _baz() | _set_baz()  |
+    | has '__baz' => (is 'rw'); | _baz() | _set__baz() |
+
+You probably don't want to use this module. You probably should be
+looking at L<MooseX::PrivateSetters> instead.
 
 =head1 AUTHOR
 
