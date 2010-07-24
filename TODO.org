@@ -1,10 +1,10 @@
-* Documentation
-*** RATIONALE
+* [[TODO]]
+*** Add RATIONALE
     - sick of writing reader=>'...', writer=>'...'
-*** SEE ALSO
+*** Add SEE ALSO
     - Moose
     - Similar MooseX extensions
-* Code
-  - Modernise as per SemiAffordanceAccsessor etc
-  - Study MooseX::Accessors::ReadWritePrivate and perhaps implement
-    (steal) his ideas
+*** Add repository
+*** Modernise as per SemiAffordanceAccsessor etc
+*** Study MooseX::Accessors::ReadWritePrivate and perhaps implement (steal) his ideas
+* [[DONE]]
