@@ -1,5 +1,14 @@
-0.01   2010-07-15
+0.02    2010-07-24
+        - Update TODO
+        - Improve documentation
+        - Modernise by using class_metaroles in
+          Moose::Exporter->setup_import_methods
+        - Add tests for attributes starting with double underscore
+        - Bump Moose prereq to 0.94, add repository
+        - add TODO.org
 
-       Initial release
+0.01    2010-07-15
 
-       - Based on Dave Rolsky's MooseX-SemiAffordanceAccessor-0.05
+        Initial release
+
+        - Based on Dave Rolsky's MooseX-SemiAffordanceAccessor-0.05
