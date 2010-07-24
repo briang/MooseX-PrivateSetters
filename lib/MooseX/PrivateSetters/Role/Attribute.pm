@@ -42,11 +42,11 @@ MooseX::PrivateSetters::Role::Attribute - Names setters as such, and makes them 
 
 =head1 SYNOPSIS
 
-  Moose::Util::MetaRole::apply_metaclass_roles
-      ( for_class => $p{for_class},
-        attribute_metaclass_roles =>
-        ['MooseX::PrivateSetters::Role::Attribute'],
-      );
+    Moose::Exporter->setup_import_methods(
+        class_metaroles => {
+            attribute => ['MooseX::PrivateSetters::Role::Attribute'],
+        },
+    );
 
 =head1 DESCRIPTION
 

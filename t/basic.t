@@ -24,8 +24,8 @@ ok( ! Standard->can('_set_private'), 'Standard->_set_private() does not exist' )
 {
     package PS;
 
-    use MooseX::PrivateSetters;
     use Moose;
+    use MooseX::PrivateSetters;
 
     has 'thing' => ( is => 'rw' );
     has '_private' => ( is => 'rw' );
@@ -39,7 +39,7 @@ ok( PS->can('_set_private'), 'PS->_set_private() exists' );
 {
     package PS2;
 
-    # Make sure load order doesn't matter
+    # load order does matter
     use Moose;
     use MooseX::PrivateSetters;
 
