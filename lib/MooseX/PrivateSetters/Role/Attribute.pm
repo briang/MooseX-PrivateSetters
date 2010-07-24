@@ -13,16 +13,12 @@ before '_process_options' => sub {
     my $options = shift;
 
     if ( exists $options->{is} &&
-         ! ( exists $options->{reader} || exists $options->{writer} ) )
-    {
-        if ( $options->{is} eq 'ro' )
-        {
+           ! ( exists $options->{reader} || exists $options->{writer} ) ) {
+        if ( $options->{is} eq 'ro' ) {
             $options->{reader} = $name;
-
             delete $options->{is};
         }
-        elsif ( $options->{is} eq 'rw' )
-        {
+        elsif ( $options->{is} eq 'rw' ) {
             $options->{reader} = $name;
             my $prefix = $name =~ /^_/  ?  '_set'  :  '_set_';
             $options->{writer} = $prefix . $name;
