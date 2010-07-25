@@ -8,8 +8,9 @@ SYNOPSIS
         # make some attributes
 
         has 'foo' => ( is => 'rw' );
-
         ...
+
+        package main;
 
         sub bar {
             $self = shift;
@@ -20,41 +21,41 @@ DESCRIPTION
     This module does not provide any methods. Simply loading it changes the
     default naming policy for the loading class so that accessors are
     separated into get and set methods. The get methods have the same name
-    as the accessor, while set methods are prefixed with "<_set_">.
+    as the accessor, while set methods are prefixed with "_set_".
 
-    If you define an attribute with a leading underscore, then the set
-    method will start with "<_set_">.
+    If you deckare an attribute with a leading underscore, then the set
+    method will start with "_set_".
 
-    If you explicitly set a "<reader"> or "<writer"> name when creating an
+    If you explicitly set a "reader" or "writer" name when creating an
     attribute, then that attribute's naming scheme is left unchanged.
 
-    Load order of this module is important. It must be "<use">d after Moose.
+    Load order of this module is important. It must be "use"d after Moose.
 
 SEE ALSO
     There are a number of similar modules on the CPAN.
 
   Moose
-    The original. A single mutator method with the same name as the
-    attribute itself
+    The original. A single mutator method is generated with the same name as
+    the attribute itself.
 
   MooseX::Accessors::ReadWritePrivate
-    Changes the parsing of the "<is"> clause, making new options available.
+    Changes the parsing of the "is" clause, making new options available.
     For example,
 
-        has baz => ( is => 'rpwp', # is private reader, is private writer
+        has baz => ( is => 'rpwp', # private reader, private writer
 
-    gets you "<_get_baz()"> and "<_set_baz">.
+    gets you "_get_baz()" and "_set_baz".
 
   MooseX::FollowPBP
     Names accessors in the style recommended by *Perl Best Practices*:
-    "<get_size"> and "<set_size">.
+    "get_size" and "set_size".
 
   MooseX::SemiAffordanceAccsessor
     Has separate methods for getting and setting. The getter has the same
-    name as the attribute, and the setter is prefixed with "<set_">.
+    name as the attribute, and the setter is prefixed with "set_".
 
 AUTHOR
-    brian greenfield, "<briang@cpan.org>"
+    brian greenfield "<briang@cpan.org>"
 
 BUGS
     Please report any bugs or feature requests to
