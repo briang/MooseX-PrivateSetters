@@ -66,7 +66,7 @@ looking at L<MooseX::PrivateSetters> instead.
 
 =head1 AUTHOR
 
-brian greenfield, C<< <briang@cpan.org> >>
+brian greenfield C<< <briang@cpan.org> >>
 
 =head1 COPYRIGHT & LICENSE
 
