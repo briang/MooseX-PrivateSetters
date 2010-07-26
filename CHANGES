@@ -11,7 +11,5 @@
         - add TODO.org
 
 0.01    2010-07-15
-
-        Initial release
-
+        - Initial release
         - Based on Dave Rolsky's MooseX-SemiAffordanceAccessor-0.05
