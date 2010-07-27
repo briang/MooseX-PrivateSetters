@@ -14,12 +14,12 @@ BEGIN {
 }
 
 use Test::More tests => scalar @mods;
+use Moose;
 
 use_ok $_ for @mods;
 
-for my $mod (@mods){
-    my $file = $INC{$mod};
-}
+diag "testing MooseX::PrivateSetters ", MooseX::PrivateSetters->VERSION,
+     " on perl $] and Moose ", Moose->VERSION;
 
 # Should check %INC to make sure we've loaded the right modules but
 # it's looking fairly hacky. So, I'll just leave the got/expectd
