@@ -24,7 +24,7 @@ __END__
 
 =head1 NAME
 
-MooseX::PrivateSetters - Name your accessors foo() and _set_foo()
+MooseX::PrivateSetters - Names your accessors foo() and _set_foo()
 
 =head1 SYNOPSIS
 
