@@ -1,6 +1,8 @@
-0.04
-    - This module can be used from inside roles with Moose 1.9900+ (Dave
-      Rolsky)
+0.04    2011-04-04
+        - Make compatable with upcoming Moose 2.0 (code provided my
+          Dave Rolsky). See
+          http://blog.moose.perl.org/2011/03/changes-to-moosex-modules-with-moose-20.html
+          for details.
 
 0.03    2010-07-25
 	- Minor documentation changes

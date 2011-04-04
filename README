@@ -1,5 +1,5 @@
 NAME
-    MooseX::PrivateSetters - Name your accessors foo() and _set_foo()
+    MooseX::PrivateSetters - Names your accessors foo() and _set_foo()
 
 SYNOPSIS
         use Moose;
