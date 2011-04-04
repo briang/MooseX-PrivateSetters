@@ -1,3 +1,7 @@
+0.04
+    - This module can be used from inside roles with Moose 1.9900+ (Dave
+      Rolsky)
+
 0.03    2010-07-25
 	- Minor documentation changes
 
