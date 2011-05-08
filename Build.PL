@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-require 5.00601;
+require 5.008003;
 
 use Module::Build;
 

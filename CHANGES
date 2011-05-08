@@ -1,3 +1,6 @@
+0.05    2011-05-09
+        - Fix minimum perl version (RT#67749). Now requires perl 5.8.3
+
 0.04    2011-04-04
         - Make compatable with upcoming Moose 2.0 (code provided my
           Dave Rolsky). See
