@@ -12,6 +12,7 @@ BEGIN {
 }
 
 use Config ();
+use Module::CoreList ();
 
 use Data::Dump; # XXX
 #use Carp qw();
@@ -44,18 +45,23 @@ my $prereqs  = $distmeta->{prereqs};
 
 my @reqs;
 for my $phase (keys %$prereqs) {
-    for my $req (keys %{$prereqs->{$phase}{requires}}) {
-        my $ver_req = $prereqs->{$phase}{requires}{$req} || 'any';
+    for my $type (keys %{$prereqs->{$phase}}) {
+        for my $req (keys %{$prereqs->{$phase}{$type}}) {
+            my $ver_req = $prereqs->{$phase}{$type}{$req} || 'any';
 
-        my $mod      = Module::Info->new_from_module($req);
-        my $ver_inst = ($mod ? $mod->version : '');
-        $ver_inst = 'undef' unless defined $ver_inst;
+            my $mod      = Module::Info->new_from_module($req);
+            my $ver_inst = ($mod ? $mod->version : '');
+            $ver_inst = 'undef' unless defined $ver_inst;
 
-        push @reqs, [ $req, $phase, $ver_req, $ver_inst ];
+            my $is_core = $Module::CoreList::version{$]}{$req} ? '*' : '';
+            $is_core = '*' if $req eq 'Config';
+
+            push @reqs, [ $is_core, $req, $phase, $type, $ver_req, $ver_inst ];
+        }
     }
 }
 
-@reqs = sort { lc $a->[0] cmp lc $b->[0] } @reqs;
+@reqs = sort { lc $a->[1] cmp lc $b->[1] } @reqs;
 
 diag <<EOP;
 
@@ -69,8 +75,10 @@ Data obtained from $meta
 
 EOP
 
-my $format = join " ", qw/%-30s  %-10s %-10s %-10s/, "\n";
-diag sprintf $format,  qw/Module Phase Need  Got/;
+my @titles =           qw/Core? Module Phase Strength Need  Got/;
+my $format = join " ", qw/%-5s  %-30s  %-10s %-12s    %-10s %-10s/, "\n";
+diag sprintf $format, @titles;
+diag sprintf $format, map { s/./-/g; $_ } @titles;
 
 diag sprintf $format, @$_
   for @reqs;
