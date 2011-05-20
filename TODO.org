@@ -2,6 +2,7 @@
 *** Study MooseX::Accessors::ReadWritePrivate and perhaps implement (steal) his ideas
 *** test consistent use of versions
 *** test package name matches path to file
+*** fix t/000-report-deps-status.t & META.yml
 * [[DONE]]
 *** Add repository
 *** Modernise as per SemiAffordanceAccsessor etc
