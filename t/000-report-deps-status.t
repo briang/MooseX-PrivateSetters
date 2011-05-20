@@ -14,11 +14,8 @@ BEGIN {
 use Config ();
 use Module::CoreList ();
 
-use Data::Dump; # XXX
+#use Data::Dump; # XXX
 #use Carp qw();
-
-$|=1;
-################################################################################
 
 use Test::More;
 
@@ -31,9 +28,7 @@ BEGIN {
     }
 }
 
-my $meta = -e 'META.json' ? 'META.json'
-         : -e 'META.yml'  ? 'META.yml'
-         :                  '';
+my $meta = -e 'META.json' ? 'META.json' : '';
 
 unless ($meta) {
     plan skip_all => "No META file found";
@@ -53,8 +48,8 @@ for my $phase (keys %$prereqs) {
             my $ver_inst = ($mod ? $mod->version : '');
             $ver_inst = 'undef' unless defined $ver_inst;
 
-            my $is_core = $Module::CoreList::version{$]}{$req} ? '*' : '';
-            $is_core = '*' if $req eq 'Config';
+            my $is_core = $Module::CoreList::version{$]}{$req} ? '  *' : '';
+            $is_core = '  *' if $req eq 'Config';
 
             push @reqs, [ $is_core, $req, $phase, $type, $ver_req, $ver_inst ];
         }
