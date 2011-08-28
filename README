@@ -50,7 +50,7 @@ SEE ALSO
     Names accessors in the style recommended by *Perl Best Practices*:
     "get_size" and "set_size".
 
-  MooseX::SemiAffordanceAccsessor
+  MooseX::SemiAffordanceAccessor
     Has separate methods for getting and setting. The getter has the same
     name as the attribute, and the setter is prefixed with "set_".
 

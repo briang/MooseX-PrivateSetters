@@ -1,3 +1,7 @@
+0.06    2011-08-28
+        - Fix silly spelling of SemiAffordanceAccessors
+          (RT#70560). Reported by Shawn H. Corey. Thanks!
+
 0.05    2011-05-09
         - Fix minimum perl version (RT#67749). Now requires perl 5.8.3
 

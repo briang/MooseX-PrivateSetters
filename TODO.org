@@ -4,7 +4,7 @@
 *** test package name matches path to file
 * [[DONE]]
 *** Add repository
-*** Modernise as per SemiAffordanceAccsessor etc
+*** Modernise as per SemiAffordanceAccessor etc
 *** Add SEE ALSO
 * [[WON'T DO/STALLED]]
 *** Add RATIONALE

@@ -3,7 +3,7 @@ package MooseX::PrivateSetters;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use Moose 0.94 ();
 use Moose::Exporter;
@@ -88,7 +88,7 @@ gets you C<_get_baz()> and C<_set_baz>.
 Names accessors in the style recommended by I<Perl Best Practices>:
 C<get_size> and C<set_size>.
 
-=head2 L<MooseX::SemiAffordanceAccsessor>
+=head2 L<MooseX::SemiAffordanceAccessor>
 
 Has separate methods for getting and setting. The getter has the same
 name as the attribute, and the setter is prefixed with C<set_>.
