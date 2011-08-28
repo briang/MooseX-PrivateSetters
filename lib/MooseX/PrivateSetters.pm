@@ -3,7 +3,7 @@ package MooseX::PrivateSetters;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use Moose 0.94 ();
 use Moose::Exporter;
@@ -56,7 +56,7 @@ the default naming policy for the loading class so that accessors are
 separated into get and set methods. The get methods have the same name
 as the accessor, while set methods are prefixed with C<_set_>.
 
-If you deckare an attribute with a leading underscore, then the set
+If you declare an attribute with a leading underscore, then the set
 method will start with C<_set_>.
 
 If you explicitly set a C<reader> or C<writer> name when creating

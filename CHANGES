@@ -1,3 +1,8 @@
+0.07    2011-08-28
+        - Fix silly spelling of declare. Reported by confound via IRC.
+        - Clarified prefix used when attribute is declared with a
+          leading underscore. Reported by confound via IRC.
+
 0.06    2011-08-28
         - Fix silly spelling of SemiAffordanceAccessors
           (RT#70560). Reported by Shawn H. Corey. Thanks!
