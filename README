@@ -23,9 +23,10 @@ DESCRIPTION
     separated into get and set methods. The get methods have the same name
     as the accessor, while set methods are prefixed with "_set_".
 
-    If you declare an attribute with a leading underscore, then the
-    set method will start with "_set" (i.e. C<<has '_foo'>> will get a
-    setter called '_set_foo'.
+    If you declare an attribute with a leading underscore, then the set
+    method will start with "_set" (i.e. "has '_foo'" will get a setter
+    called "_set_foo". Note that if you have attributes "foo" and "_foo",
+    they will both get a setter called "_set_foo", so don't do that.
 
     If you explicitly set a "reader" or "writer" name when creating an
     attribute, then that attribute's naming scheme is left unchanged.
