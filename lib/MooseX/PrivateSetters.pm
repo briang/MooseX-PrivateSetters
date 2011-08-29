@@ -3,7 +3,7 @@ package MooseX::PrivateSetters;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use Moose 0.94 ();
 use Moose::Exporter;
