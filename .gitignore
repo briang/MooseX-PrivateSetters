@@ -12,3 +12,5 @@ MANIFEST.SKIP
 META.yml
 MooseX-PrivateSetters-*
 MYMETA.yml
+META.json
+MYMETA.json
