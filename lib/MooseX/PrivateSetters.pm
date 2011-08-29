@@ -57,7 +57,10 @@ separated into get and set methods. The get methods have the same name
 as the accessor, while set methods are prefixed with C<_set_>.
 
 If you declare an attribute with a leading underscore, then the set
-method will start with C<_set_>.
+method will start with "_set" (i.e. C<has '_foo'> will get a setter
+called C<_set_foo>. Note that if you have attributes C<foo> and
+C<_foo>, they will both get a setter called C<_set_foo>, so don't do
+that.
 
 If you explicitly set a C<reader> or C<writer> name when creating
 an attribute, then that attribute's naming scheme is left unchanged.
